@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  position: relative;
+  width: 100vw;
+  line-height: 1;
+  -ms-flex-align: center;
+  text-align: center;
+  font-size: 1.5rem;
+  background-color: #011627;
+  color: #fdfffc;
+  padding: 5px;
+}
+
+.button-container {
+  margin: 20px 0;
+}
+
+button {
+  background-color: #0582ca;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #045a8d;
+}
+
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1px;
+  margin: 20px auto;
+  width: 90vw;
+  max-width: 450px;
+  aspect-ratio: 1 / 1;
+  background-color: #000;
+  padding: 3px;
+  border: 3px solid #000;
+}
+
+.cell {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cell:hover {
+  background-color: #e6e6e6;
+}
+
+.highlight {
+  background-color: #ffff99;
+}
+
+.solved {
+  background-color: #d4edda;
+}
+
+.cell:nth-child(3n) {
+  border-right: 2px solid #000;
+}
+
+.cell:nth-child(n + 19):nth-child(-n + 27),
+.cell:nth-child(n + 46):nth-child(-n + 54) {
+  border-bottom: 2px solid #000;
+}
+
+.cell:nth-child(9n) {
+  border-right: none;
+}
+
+.cell:nth-child(n + 73):nth-child(-n + 81) {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 800px) {
+  .sudoku-board {
+    max-width: 95%;
+  }
+
+  .cell {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  header {
+    top: -10px;
+    font-size: 1.2rem;
+    padding: 9px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .cell {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sudoku-board {
+    width: 85vw;
+  }
+
+  .cell {
+    font-size: 5vw;
+  }
+
+  header {
+    font-size: 1rem;
+    top: -10px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .cell {
+    font-size: 16px;
+  }
+}
